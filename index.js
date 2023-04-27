@@ -1,0 +1,47 @@
+const express = require('express');
+const path = require('path');
+const expressLayouts = require('express-ejs-layouts');
+// const { title } = require('process');
+
+//setting up port and calling the express
+const port = process.env.PORT || 8000;
+const app = express();
+
+
+//setting up view/ejs template
+app.use(expressLayouts);
+// app.set('layout extractStyles', true);
+// app.set('layout extractScripts', true);
+// app.set('layout', '/');
+app.set('view engine','ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+// static files
+app.use(express.static('assets'));
+app.use('/css', express.static(__dirname + 'assets/css'));
+// app.use('/js', express.static(__dirname + 'assets/js'));
+// app.use('/img', express.static(__dirname + 'assets/img'));
+
+
+app.get('/', function(req,res){
+    return res.render('SignIn'
+    // , {
+    //     title: Sign-In
+    // }
+    );
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.listen(port, ()=> console.log(`Listening to port ${port}`));
