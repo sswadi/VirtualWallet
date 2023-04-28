@@ -12,31 +12,17 @@ const app = express();
 app.use(expressLayouts);
 // app.set('layout extractStyles', true);
 // app.set('layout extractScripts', true);
-// app.set('layout', '/');
 app.set('view engine','ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // static files
 app.use(express.static('assets'));
 app.use('/css', express.static(__dirname + 'assets/css'));
-// app.use('/js', express.static(__dirname + 'assets/js'));
-// app.use('/img', express.static(__dirname + 'assets/img'));
+app.use('/js', express.static(__dirname + 'assets/js'));
+app.use('/img', express.static(__dirname + 'assets/img'));
 
-
-app.get('/', function(req,res){
-    return res.render('SignIn'
-    // , {
-    //     title: Sign-In
-    // }
-    );
-});
-
-
-
-
-
-
-
+// use express router
+app.use('/', require('./routes'));
 
 
 
