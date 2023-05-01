@@ -1,5 +1,5 @@
 const mongoose = require('mongoose'); // require the library that helps you connect mongodb with express server
-mongoose.connect('mongodb://localhost/Virtual_Wallet_db'); //mongodb: server | Issue_Tracker_db: database name
+mongoose.connect('mongodb://localhost/Virtual_Wallet_db'); //mongodb: server | Virtual_Wallet_db: database name
 
 const db = mongoose.connection; //acquire the connection to check if it is successful
 db.on('error', console.error.bind(console, 'connection error:'));

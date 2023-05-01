@@ -1,7 +1,8 @@
 const express = require('express');
 const path = require('path');
 const expressLayouts = require('express-ejs-layouts');
-// const { title } = require('process');
+const db = require('./config/mongoose');
+const user = require('./models/user');
 
 //setting up port and calling the express
 const port = process.env.PORT || 8000;
@@ -22,7 +23,7 @@ app.use('/js', express.static(__dirname + 'assets/js'));
 app.use('/img', express.static(__dirname + 'assets/img'));
 
 // use express router
-app.use('/', require('./routes'));
+// app.use('/', require('./routes'));
 
 
 
